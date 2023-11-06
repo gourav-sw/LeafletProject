@@ -1,0 +1,15 @@
+.navbar {
+  background-color: yellowgreen;
+}
+
+.offcanvas {
+  background-color: yellow;
+}
+
+#footer-copyright {
+  background-color: yellowgreen;
+}
+
+#map {
+  height: 90vh;
+}
