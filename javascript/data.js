@@ -12,3 +12,13 @@ function createSingaporeMap() {
   map.setView(singaporeCoordinates, 12);
   return map;
 }
+
+async function loadMapData(filePath) {
+  const readData = await axios.get(filePath);
+  return readData.data;
+}
+
+function renderMapGeoJSON(mapData, layerGroup) {
+  const layerData = L.geoJSON(mapData);
+    layerData.addTo(layerGroup);
+}
