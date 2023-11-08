@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', async function(){
   
   async function renderMuseumCluster(){
     const mapData = await loadMapData("data/json/museums.geojson");
-    const museumLayer = L.markerClusterGroup();
+    const museumLayer = L.markerClusterGroup({
+      showCoverageOnHover: false
+    });
       museumLayer.addTo(map);
     renderMapGeoJSON(mapData, museumLayer);
   }

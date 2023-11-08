@@ -10,6 +10,7 @@ function createSingaporeMap() {
   }).addTo(map);
   //map.maxBounds(singaporeBounds);
   map.setView(singaporeCoordinates, 12);
+  map.removeControl(map.zoomControl);
   return map;
 }
 
@@ -26,8 +27,27 @@ function renderMapGeoJSON(mapData, layerGroup) {
       const allData = dataContainer.querySelectorAll('td');
       
       const museumName = allData[9].innerHTML;
-      const photoURL = allData[10].innerHTML
-      layer.bindPopup(`<h1>${museumName}</h1><img class="popup-img" src="${photoURL}" alt="${museumName}"/>`);
+      const museumDescription = allData[5].innerHTML;
+      const photoURL = allData[10].innerHTML;
+
+      const addressBlockNo = allData[0].innerHTML;
+      const addressStreet = allData[3].innerHTML;
+      const addressPost = allData[2].innerHTML;
+
+      const museumWebsite = allData[6].innerHTML;
+
+      layer.bindPopup(`<section class="popup-section">
+        <h1 class="popup-museumName">${museumName}</h1>
+        <div>
+          <p>&#128204 ${addressBlockNo} ${addressStreet}, ${addressPost}</p>
+          <p>${museumDescription}</p>
+          <a href="${museumWebsite}">Website</a>
+        </div>
+        <div>
+          <img class="popup-photo" src="${photoURL}" alt="${museumName}"/>
+        </div>
+      </section>
+      `);
     }
   });
     layerData.addTo(layerGroup);
