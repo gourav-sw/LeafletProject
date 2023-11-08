@@ -19,6 +19,16 @@ async function loadMapData(filePath) {
 }
 
 function renderMapGeoJSON(mapData, layerGroup) {
-  const layerData = L.geoJSON(mapData);
+  const layerData = L.geoJSON(mapData, {
+    onEachFeature: function(feature, layer){
+      const dataContainer = document.createElement('div');
+      dataContainer.innerHTML = feature.properties.Description;
+      const allData = dataContainer.querySelectorAll('td');
+      
+      const museumName = allData[9].innerHTML;
+      const photoURL = allData[10].innerHTML
+      layer.bindPopup(`<h1>${museumName}</h1><img class="popup-img" src="${photoURL}" alt="${museumName}"/>`);
+    }
+  });
     layerData.addTo(layerGroup);
 }
