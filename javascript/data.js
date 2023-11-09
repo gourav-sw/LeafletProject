@@ -1,5 +1,7 @@
 const singaporeCoordinates = [1.3521, 103.8198];
-const singaporeBounds = [[1.4486, 104.0034],[1.2643, 103.6404]];
+const boundsSW = L.latLng(0.4284, 103.2138);
+const boundsNE = L.latLng(2.2735, 104.4250);
+const singaporeBounds = L.latLngBounds(boundsSW, boundsNE);
 
 function createSingaporeMap() {
   const map = L.map("map");
@@ -8,8 +10,8 @@ function createSingaporeMap() {
     minZoom: 11,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
-  //map.maxBounds(singaporeBounds);
-  map.setView(singaporeCoordinates, 12);
+  map.setMaxBounds(singaporeBounds);
+  map.setView(singaporeCoordinates, 11);
   map.removeControl(map.zoomControl);
   return map;
 }

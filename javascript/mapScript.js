@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', async function(){
   const map = createSingaporeMap();
-  map.setMaxBounds(map.getBounds());
   renderMuseumCluster();
   
   async function renderMuseumCluster(){
