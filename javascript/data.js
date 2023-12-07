@@ -45,7 +45,7 @@ function renderMapGeoJSON(mapData, layerGroup) {
           <p>${museumDescription}</p>
           <a href="${museumWebsite}">Website</a>
         </div>
-        <div>
+        <div class="popup-imagePlaceholder">
           <img class="popup-photo" src="${photoURL}" alt="${museumName}"/>
         </div>
       </section>

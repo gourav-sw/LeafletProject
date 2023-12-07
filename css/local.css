@@ -11,7 +11,12 @@
 }
 
 #map {
-  height: 90vh;
+  height: 91vh;
+}
+
+.popup-imagePlaceholder {
+  min-width: 100%;
+  min-height: 200px;
 }
 
 .popup-photo {
